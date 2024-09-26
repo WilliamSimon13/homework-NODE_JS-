@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Management</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+  </head>
+<body>
+    <h1>New Product</h1>
+        <hr>
+        <div class="section">
+        <form id="frm">
+                <p>
+                    <label>
+                        Product Name
+                        <input type="text" name="pname" id="pname">
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Product Quantity
+                        <input type="text" name="qty" id="qty">
+                    </label>
+                </p>
+                <p>
+                    <label>
+                        Product Price
+                        <input type="text" name="pri" id="pri">
+                    </label>
+                </p>
+                <p>
+                    <button type="button" onclick="add()">Add</button>
+                    <button type="button">Cancel</button>
+                </p>
+        </form>
+        <table id="tb">
+            <thead id="thead">
+                <tr>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+                <tr>
+                    <td>Total</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td id="total">0</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+
+        
+        <script>
+            var id = 0;
+    
+            function add() {
+                id++;
+                
+                var pname = document.getElementById('pname').value;
+                var qty = document.getElementById('qty').value;
+                var price = document.getElementById('pri').value;
+                var sub = qty * price;
+    
+                var row = "<tr>";
+                row += "<td>" + id + "</td>";
+                row += "<td>" + pname + "</td>";
+                row += "<td>" + qty + "</td>";
+                row += "<td>" + price + "</td>";
+                row += "<td>" + sub + "</td>";
+                row += "</tr>";
+    
+                var total = document.getElementById("total").innerHTML;
+                total = parseInt(total) + parseInt(sub);
+    
+                var row_total = "<tr>";
+                row_total += "<td>Total</td>";
+                row_total += "<td></td>";
+                row_total += "<td></td>";
+                row_total += "<td></td>";
+                row_total += "<td id='total'>" + total + "</td>";
+                row_total += "</tr>";
+    
+                document.getElementById("thead").innerHTML += row;
+                document.getElementById("tbody").innerHTML = row_total;
+    
+                clearForm();
+            }
+    
+            function clearForm() {
+                document.getElementById('pname').value = '';
+                document.getElementById('qty').value = '';
+                document.getElementById('pri').value = '';
+            }
+        </script>
+</body>
+</html>
+
