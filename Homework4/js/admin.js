@@ -19,6 +19,7 @@ var productAdmin = function(){
     }
     // Save();
     }
+    
 var addProduct = function(){
     var Product = {
         id :"P"+parseInt( product.length+1),
@@ -27,9 +28,8 @@ var addProduct = function(){
         price : document.getElementById("price").value
     }
         product.push(Product);
-        localStorage.setItem('listProduct',JSON.stringify(product));
-        // Save();
-     window.location.reload();
+        localStorage.setItem('listProduct',JSON.stringify(product));        
+        window.location.reload();
     }
 
     // Xóa sản phẩm 
