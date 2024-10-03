@@ -21,7 +21,7 @@ var productAdmin = function(){
     }
 var addProduct = function(){
     var Product = {
-        id :"SP"+parseInt( product.length+1),
+        id :"P"+parseInt( product.length+1),
         name : document.getElementById("name").value,
         img : document.getElementById("img").value,
         price : document.getElementById("price").value
