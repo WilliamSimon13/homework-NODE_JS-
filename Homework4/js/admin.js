@@ -6,7 +6,7 @@ var productAdmin = function(){
      var listproduct1 = '<tr>';
       listproduct1+='<td>'+data.id+'</td>';
       listproduct1+='<td>'+data.name+'</td>';
-    //   listproduct1+='<td><img src="../img/'+data.img+'" alt="" style="width: 50px;"></td>';
+      listproduct1+='<td><img src="../img/'+data.img+'" alt="" style="width: 50px;"></td>';
       listproduct1+='<td>'+data.price+'</td>';
      //  listproduct1+='';
       listproduct1+='<td><button onclick="updateProduct('
@@ -23,7 +23,7 @@ var addProduct = function(){
     var Product = {
         id :"SP"+parseInt( product.length+1),
         name : document.getElementById("name").value,
-        // img : document.getElementById("img").value,
+        img : document.getElementById("img").value,
         price : document.getElementById("price").value
     }
         product.push(Product);
@@ -44,7 +44,7 @@ var addProduct = function(){
         var k = product[i];
         document.getElementById("idd").value = k.id;
         document.getElementById("named").value = k.name;
-        // document.getElementById("imgd").value = k.img;
+        document.getElementById("imgd").value = k.img;
         document.getElementById("priced").value = k.price;
         document.getElementById("idd").setAttribute("disabled","disabled");
         document.getElementById("submitUpdate").innerHTML = '<button class="btn btn-outline-danger mt-3" onclick="submitUpdate('+i+')"> Đồng ý</button>'
@@ -53,7 +53,7 @@ var addProduct = function(){
         var k = product[i];
         k.id= document.getElementById("idd").value;
         k.name= document.getElementById("named").value;
-        // k.img= document.getElementById("imgd").value;
+        k.img= document.getElementById("imgd").value;
         k.price= document.getElementById("priced").value;
         localStorage.setItem('listProduct',JSON.stringify(product));
         window.location.reload();
@@ -66,7 +66,7 @@ var addProduct = function(){
          var listproduct = '<tr>';
           listproduct+='<td>'+data.id+'</td>';
           listproduct+='<td>'+data.username+'</td>';
-        //   listproduct+='<td><img src="../img/'+data.img+'" alt="" style="width: 50px;"></td>';
+          listproduct+='<td><img src="../img/'+data.img+'" alt="" style="width: 50px;"></td>';
           listproduct+='<td>'+data.email+'</td>';
          //  listproduct1+='';
           listproduct+='<td><button onclick="updateProduct('

@@ -2,25 +2,25 @@
         {
             id:"P1",
             name:"Phòng tổng thống",
-            // img : "s11.jpg",
+            img : "P1.jpeg",
             price:1220000,
         },
         {
             id:"P2",
             name:"Phòng giường đôi",
-            // img : "s12.jpg",
+            img : "P2.png",
             price:400000,
         },
         {
             id:"P3",
             name:"Phòng bình dân",
-            // img : "s13.jpg",
+            img : "P3.jpeg",
             price:350000,
         },
         {
             id:"P4",
             name:"Phòng giường lớn",
-            // img : "s14.jpg",
+            img : "P4.jpeg",
             price:564000,
         },
         
@@ -44,7 +44,7 @@ Save();
            var data = JSON.parse(JSON.stringify(product[i]))
         var listproduct = '<div class="col-lg-3 col-md-6 col-sm-6 col-6 mt-3">';
         listproduct += '<div class="card product p-2" styte="width:auto">'; 
-        // listproduct += '<img class="card-img-top" src="img/' + data.img +'" alt="...">';
+        listproduct += '<img class="card-img-top" src="img/' + data.img +'" alt="...">';
         listproduct += '<div class="card-title product-title text-center h5" >'+data.name+'</div>';
         listproduct += '<div class="price text-center h6">'+data.price+'₫</div>';
         listproduct +=  '<span class="text-center add-to-cart btn btn-outline-warning add-cart" data-id="'+data.id+'" data-name="'+data.name+'" data-img="'+data.img+'" data-price="'+data.price+'" onclick="tks()">';
