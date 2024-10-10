@@ -28,11 +28,11 @@
 // };
 // hello ("simon", "???");
 
-var dientichHCN = (width, height) =>{
+const dientichHCN = (width, height) =>{
     return width * height;
 }
 
-var chuviHCN = (width, height) =>{
+const chuviHCN = (width, height) =>{
     return (width + height) *2;
 }
 
