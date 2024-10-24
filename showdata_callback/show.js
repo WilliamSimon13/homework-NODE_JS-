@@ -19,6 +19,8 @@ function getProducts(callback) {
           <td>${product.available}</td>
           <td><button class="btn btn-warning" onclick="editProduct(${product.id})"
           data-bs-toggle="modal" data-bs-target="#productModal">Update</button>
+          <td><button class="btn btn-danger" onclick="deleteProduct(${product.id})"
+          >delete</button>
 
         </tr>`;
         productTableBody.innerHTML += row;
@@ -91,8 +93,25 @@ function getProducts(callback) {
               document.getElementById('productPlace').value = product.place;
               document.getElementById('productAvailable').value = product.available;
               document.getElementById('productModalLabel').textContent = 'Edit Product';
+
+              
           })
           .catch(error => console.error('Error fetching product:', error));
+  }
+
+  function deleteProduct(productId) {
+    if (confirm('Are you sure you want to delete this product?')) {
+        
+        fetch(`https://671a0effacf9aa94f6a8ede6.mockapi.io/hotel/v1/hotel/${productId}`, {
+            method: 'DELETE'
+        })
+        .then(() => {
+            alert('Product deleted successfully');
+            
+            getProducts(handleProducts);
+        })
+        .catch(error => console.error('Error deleting product:', error));
+    }
   }
 
   
