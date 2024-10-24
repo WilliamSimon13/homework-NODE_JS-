@@ -17,8 +17,8 @@ function getProducts(callback) {
           <td>${product.price}</td>
           <td>${product.place}</td>
           <td>${product.available}</td>
-          <td><button onclick="updateProduct('
-          +id+')" class="btn btn-outline-danger"  data-toggle="modal" data-target="#updateProduct"><i class="fas fa-cogs"></i></button>
+          <td><button class="btn btn-warning" onclick="editProduct(${product.id})"
+          data-bs-toggle="modal" data-bs-target="#productModal">Update</button>
 
         </tr>`;
         productTableBody.innerHTML += row;
@@ -43,7 +43,7 @@ function getProducts(callback) {
     };
 
     if (productId) {
-        // Update product if productId is present
+        
         fetch(`https://671a0effacf9aa94f6a8ede6.mockapi.io/hotel/v1/hotel/${productId}`, {
             method: 'PUT',
             headers: {
@@ -54,13 +54,13 @@ function getProducts(callback) {
         .then(response => response.json())
         .then(() => {
             alert('Product updated successfully');
-            getProducts(handleProducts); // Reload products
+            getProducts(handleProducts); 
             document.getElementById('productForm').reset();
-            document.getElementById('productModal').querySelector('.btn-close').click(); // Close modal
+            document.getElementById('productModal').querySelector('.btn-close').click(); 
         })
         .catch(error => console.error('Error updating product:', error));
     } else {
-        // Create new product
+        
         fetch('https://671a0effacf9aa94f6a8ede6.mockapi.io/hotel/v1/hotel', {
             method: 'POST',
             headers: {
@@ -71,28 +71,28 @@ function getProducts(callback) {
         .then(response => response.json())
         .then(() => {
             alert('Product added successfully');
-            getProducts(handleProducts); // Reload products
+            getProducts(handleProducts); 
             document.getElementById('productForm').reset();
-            document.getElementById('productModal').querySelector('.btn-close').click(); // Close modal
+            document.getElementById('productModal').querySelector('.btn-close').click(); 
         })
         .catch(error => console.error('Error adding product:', error));
       }
   });
 
 
-  // function editProduct(id) {
-  //     fetch(`https://671a0effacf9aa94f6a8ede6.mockapi.io/hotel/v1/hotel/${id}`)
-  //         .then(response => response.json())
-  //         .then(product => {
+  function editProduct(id) {
+      fetch(`https://671a0effacf9aa94f6a8ede6.mockapi.io/hotel/v1/hotel/${id}`)
+          .then(response => response.json())
+          .then(product => {
               
-  //             document.getElementById('productId').value = product.id;
-  //             document.getElementById('productName').value = product.name;
-  //             document.getElementById('productPrice').value = product.price;
-  //             document.getElementById('productPlace').value = product.place;
-  //             document.getElementById('productAvailable').value = product.available;
-  //             document.getElementById('productModalLabel').textContent = 'Edit Product';
-  //         })
-  //         .catch(error => console.error('Error fetching product:', error));
-  // }
+              document.getElementById('productId').value = product.id;
+              document.getElementById('productName').value = product.name;
+              document.getElementById('productPrice').value = product.price;
+              document.getElementById('productPlace').value = product.place;
+              document.getElementById('productAvailable').value = product.available;
+              document.getElementById('productModalLabel').textContent = 'Edit Product';
+          })
+          .catch(error => console.error('Error fetching product:', error));
+  }
 
   
