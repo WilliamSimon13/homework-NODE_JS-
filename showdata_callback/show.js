@@ -18,9 +18,9 @@ function getProducts(callback) {
           <td>${product.place}</td>
           <td>${product.available}</td>
           <td><button class="btn btn-warning" onclick="editProduct(${product.id})"
-          data-bs-toggle="modal" data-bs-target="#productModal">Update</button>
-          <td><button class="btn btn-danger" onclick="deleteProduct(${product.id})"
-          >delete</button>
+          data-bs-toggle="modal" data-bs-target="#productModal">U</button>
+          <button class="btn btn-danger" onclick="deleteProduct(${product.id})"
+          >D</button>
 
         </tr>`;
         productTableBody.innerHTML += row;
