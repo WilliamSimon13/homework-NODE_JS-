@@ -1,5 +1,5 @@
 
-let mySet = new Set();
+let mySet = new Set([1,2,3,4,5]);
 
 
 mySet.add(1);
@@ -11,8 +11,8 @@ mySet.add('Hello');
 console.log(mySet);  
 
 
-console.log(mySet.size); 
 
+console.log(mySet.size); 
 
 console.log(mySet.has(1));  
 console.log(mySet.has(10)); 
@@ -29,6 +29,7 @@ mySet.forEach(value => {
 
 mySet.clear();
 console.log(mySet); 
+
 
 
 
