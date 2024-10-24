@@ -17,7 +17,7 @@ function getProducts(callback) {
           <td>${product.price}</td>
           <td>${product.place}</td>
           <td>${product.available}</td>
-          '<td><button onclick="updateProduct('
+          <td><button onclick="updateProduct('
           +id+')" class="btn btn-outline-danger"  data-toggle="modal" data-target="#updateProduct"><i class="fas fa-cogs"></i></button>
 
         </tr>`;
@@ -80,19 +80,19 @@ function getProducts(callback) {
   });
 
 
-  function editProduct(id) {
-      fetch(`https://671a0effacf9aa94f6a8ede6.mockapi.io/hotel/v1/hotel/${id}`)
-          .then(response => response.json())
-          .then(product => {
-              // Populate the form with the product data
-              document.getElementById('productId').value = product.id;
-              document.getElementById('productName').value = product.name;
-              document.getElementById('productPrice').value = product.price;
-              document.getElementById('productPlace').value = product.place;
-              document.getElementById('productAvailable').value = product.available;
-              document.getElementById('productModalLabel').textContent = 'Edit Product';
-          })
-          .catch(error => console.error('Error fetching product:', error));
-  }
+  // function editProduct(id) {
+  //     fetch(`https://671a0effacf9aa94f6a8ede6.mockapi.io/hotel/v1/hotel/${id}`)
+  //         .then(response => response.json())
+  //         .then(product => {
+              
+  //             document.getElementById('productId').value = product.id;
+  //             document.getElementById('productName').value = product.name;
+  //             document.getElementById('productPrice').value = product.price;
+  //             document.getElementById('productPlace').value = product.place;
+  //             document.getElementById('productAvailable').value = product.available;
+  //             document.getElementById('productModalLabel').textContent = 'Edit Product';
+  //         })
+  //         .catch(error => console.error('Error fetching product:', error));
+  // }
 
   
